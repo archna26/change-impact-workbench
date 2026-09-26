@@ -1,0 +1,454 @@
+{
+  "_meta": {
+    "generated_by": "ciw_engine.py",
+    "note": "Entries extracted from fictional representative source files. Files are synthetic \u2014 not compiled or run on any platform. IBM i: DDS/RPG ILE/CL.  COBOL: copybooks and programs.",
+    "physical_files_indexed": 5,
+    "programs_indexed": 9,
+    "unique_field_names_indexed": 29
+  },
+  "physical_files": [
+    "BILREC",
+    "COMMBRAK",
+    "ITEMMST",
+    "ORDHDR",
+    "ORDLIN"
+  ],
+  "fields": {
+    "ALLOC": [
+      {
+        "field_name": "ALLOC",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 10,
+        "data_type": "9S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "BILL-ACCT": [
+      {
+        "field_name": "BILL-ACCT",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 12,
+        "data_type": "05  BILL-ACCT     PIC X(10).",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-AMOUNT": [
+      {
+        "field_name": "BILL-AMOUNT",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 16,
+        "data_type": "05  BILL-AMOUNT   PIC 9(9)V99.",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-DISPUTE": [
+      {
+        "field_name": "BILL-DISPUTE",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 20,
+        "data_type": "88  BILL-DISPUTE  VALUE 'D'.",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-NAME": [
+      {
+        "field_name": "BILL-NAME",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 13,
+        "data_type": "05  BILL-NAME     PIC X(30).",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-OPEN": [
+      {
+        "field_name": "BILL-OPEN",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 18,
+        "data_type": "88  BILL-OPEN     VALUE 'O'.",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-PAID": [
+      {
+        "field_name": "BILL-PAID",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 19,
+        "data_type": "88  BILL-PAID     VALUE 'P'.",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-RATE": [
+      {
+        "field_name": "BILL-RATE",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 15,
+        "data_type": "05  BILL-RATE     PIC 9(3)V99.",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-STATUS": [
+      {
+        "field_name": "BILL-STATUS",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 17,
+        "data_type": "05  BILL-STATUS   PIC X(1).",
+        "lang": "cobol"
+      }
+    ],
+    "BILL-UNITS": [
+      {
+        "field_name": "BILL-UNITS",
+        "container": "BILREC",
+        "source_path": "src/QCBLSRC/BILREC.CPY",
+        "line_no": 14,
+        "data_type": "05  BILL-UNITS    PIC 9(7).",
+        "lang": "cobol"
+      }
+    ],
+    "BRAK_FROM": [
+      {
+        "field_name": "BRAK_FROM",
+        "container": "COMMBRAK",
+        "source_path": "src/QDDSSRC/COMMBRAK.DDS",
+        "line_no": 8,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "BRAK_TO": [
+      {
+        "field_name": "BRAK_TO",
+        "container": "COMMBRAK",
+        "source_path": "src/QDDSSRC/COMMBRAK.DDS",
+        "line_no": 9,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "COMM_RATE": [
+      {
+        "field_name": "COMM_RATE",
+        "container": "COMMBRAK",
+        "source_path": "src/QDDSSRC/COMMBRAK.DDS",
+        "line_no": 10,
+        "data_type": "5P 4",
+        "lang": "ibmi"
+      }
+    ],
+    "CUSTNO": [
+      {
+        "field_name": "CUSTNO",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 8,
+        "data_type": "6A",
+        "lang": "ibmi"
+      }
+    ],
+    "DESCR": [
+      {
+        "field_name": "DESCR",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 8,
+        "data_type": "40A",
+        "lang": "ibmi"
+      }
+    ],
+    "EXTAMT": [
+      {
+        "field_name": "EXTAMT",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 12,
+        "data_type": "13P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "ITEMNO": [
+      {
+        "field_name": "ITEMNO",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 7,
+        "data_type": "8A",
+        "lang": "ibmi"
+      },
+      {
+        "field_name": "ITEMNO",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 9,
+        "data_type": "8A",
+        "lang": "ibmi"
+      }
+    ],
+    "LINESEQ": [
+      {
+        "field_name": "LINESEQ",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 8,
+        "data_type": "3S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "ORDAMT": [
+      {
+        "field_name": "ORDAMT",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 15,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "ORDNO": [
+      {
+        "field_name": "ORDNO",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 7,
+        "data_type": "7S 0",
+        "lang": "ibmi"
+      },
+      {
+        "field_name": "ORDNO",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 7,
+        "data_type": "7S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "ORDSTS": [
+      {
+        "field_name": "ORDSTS",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 10,
+        "data_type": "1A",
+        "lang": "ibmi"
+      }
+    ],
+    "ORD_DATE": [
+      {
+        "field_name": "ORD_DATE",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 14,
+        "data_type": "L",
+        "lang": "ibmi"
+      }
+    ],
+    "PRICE": [
+      {
+        "field_name": "PRICE",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 11,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "QOH": [
+      {
+        "field_name": "QOH",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 9,
+        "data_type": "9S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "QTY": [
+      {
+        "field_name": "QTY",
+        "container": "ORDLIN",
+        "source_path": "src/QDDSSRC/ORDLIN.DDS",
+        "line_no": 10,
+        "data_type": "7S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "REORD": [
+      {
+        "field_name": "REORD",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 11,
+        "data_type": "9S 0",
+        "lang": "ibmi"
+      }
+    ],
+    "SALESREP": [
+      {
+        "field_name": "SALESREP",
+        "container": "COMMBRAK",
+        "source_path": "src/QDDSSRC/COMMBRAK.DDS",
+        "line_no": 7,
+        "data_type": "6A",
+        "lang": "ibmi"
+      },
+      {
+        "field_name": "SALESREP",
+        "container": "ORDHDR",
+        "source_path": "src/QDDSSRC/ORDHDR.DDS",
+        "line_no": 9,
+        "data_type": "6A",
+        "lang": "ibmi"
+      }
+    ],
+    "SELL_PRICE": [
+      {
+        "field_name": "SELL_PRICE",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 13,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ],
+    "UNIT_COST": [
+      {
+        "field_name": "UNIT_COST",
+        "container": "ITEMMST",
+        "source_path": "src/QDDSSRC/ITEMMST.DDS",
+        "line_no": 12,
+        "data_type": "11P 2",
+        "lang": "ibmi"
+      }
+    ]
+  },
+  "programs": {
+    "BILPRINT": {
+      "name": "BILPRINT",
+      "source_path": "src/QCBLSRC/BILPRINT.CBL",
+      "source_type": "CBL",
+      "lang": "cobol",
+      "files_opened": [],
+      "calls_programs": [],
+      "extpgm_refs": [],
+      "copy_members": [
+        "BILREC"
+      ]
+    },
+    "CALCBILL": {
+      "name": "CALCBILL",
+      "source_path": "src/QCBLSRC/CALCBILL.CBL",
+      "source_type": "CBL",
+      "lang": "cobol",
+      "files_opened": [],
+      "calls_programs": [
+        "BILPRINT"
+      ],
+      "extpgm_refs": [],
+      "copy_members": [
+        "BILREC"
+      ]
+    },
+    "COMMJOB": {
+      "name": "COMMJOB",
+      "source_path": "src/QRPGLESRC/COMMJOB.RPGLE",
+      "source_type": "RPGLE",
+      "lang": "ibmi",
+      "files_opened": [
+        "ORDHDR",
+        "ORDLIN",
+        "COMMBRAK"
+      ],
+      "calls_programs": [],
+      "extpgm_refs": [],
+      "copy_members": []
+    },
+    "DAYENDJOB": {
+      "name": "DAYENDJOB",
+      "source_path": "src/QCLSRC/DAYENDJOB.CLP",
+      "source_type": "CLP",
+      "lang": "ibmi",
+      "files_opened": [],
+      "calls_programs": [
+        "INVUPDJOB",
+        "COMMJOB"
+      ],
+      "extpgm_refs": [],
+      "copy_members": []
+    },
+    "INVPRICJOB": {
+      "name": "INVPRICJOB",
+      "source_path": "src/QRPGLESRC/INVPRICJOB.RPGLE",
+      "source_type": "RPGLE",
+      "lang": "ibmi",
+      "files_opened": [
+        "ORDHDR",
+        "ORDLIN",
+        "ITEMMST"
+      ],
+      "calls_programs": [],
+      "extpgm_refs": [
+        "PRICECALC"
+      ],
+      "copy_members": []
+    },
+    "INVUPDJOB": {
+      "name": "INVUPDJOB",
+      "source_path": "src/QRPGLESRC/INVUPDJOB.RPGLE",
+      "source_type": "RPGLE",
+      "lang": "ibmi",
+      "files_opened": [
+        "ORDHDR",
+        "ORDLIN",
+        "ITEMMST"
+      ],
+      "calls_programs": [],
+      "extpgm_refs": [],
+      "copy_members": []
+    },
+    "ORDENTRY": {
+      "name": "ORDENTRY",
+      "source_path": "src/QRPGLESRC/ORDENTRY.RPGLE",
+      "source_type": "RPGLE",
+      "lang": "ibmi",
+      "files_opened": [
+        "ORDHDR",
+        "ORDLIN"
+      ],
+      "calls_programs": [],
+      "extpgm_refs": [
+        "PRICECALC"
+      ],
+      "copy_members": []
+    },
+    "PRICECALC": {
+      "name": "PRICECALC",
+      "source_path": "src/QRPGLESRC/PRICECALC.RPGLE",
+      "source_type": "RPGLE",
+      "lang": "ibmi",
+      "files_opened": [],
+      "calls_programs": [],
+      "extpgm_refs": [],
+      "copy_members": []
+    },
+    "STMTJOB": {
+      "name": "STMTJOB",
+      "source_path": "src/QCLSRC/STMTJOB.CLP",
+      "source_type": "CLP",
+      "lang": "ibmi",
+      "files_opened": [],
+      "calls_programs": [
+        "INVPRICJOB"
+      ],
+      "extpgm_refs": [],
+      "copy_members": []
+    }
+  }
+}

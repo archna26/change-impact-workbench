@@ -1,0 +1,16 @@
+      *----------------------------------------------------------------
+      * ORDHDR - Order Header Physical File
+      * RETAILCO fictional IBM i application
+      * Representative DDS syntax — not compiled or run on IBM i
+      *----------------------------------------------------------------
+      A          R ORDHDRR
+      A            ORDNO          7S 0       COLHDG('ORDER' 'NUMBER')
+      A            CUSTNO         6A         COLHDG('CUSTOMER' 'NUMBER')
+      A            SALESREP       6A         COLHDG('SALES' 'REP')
+      A            ORDSTS         1A         COLHDG('ORDER' 'STATUS')
+      *                                      Valid values (pre-change):
+      *                                        O=Open  P=Picking
+      *                                        C=Closed  X=Cancelled
+      A            ORD_DATE       L           COLHDG('ORDER' 'DATE')
+      A            ORDAMT        11P 2        COLHDG('ORDER' 'AMOUNT')
+      A          K ORDNO

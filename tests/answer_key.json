@@ -1,0 +1,117 @@
+{
+  "_comment": "Dependency answer key — written BEFORE ciw_engine runs. Used to score Bob's impact report against ground truth. Do not modify after initial commit.",
+  "_methodology": "Each entry verified by manual inspection of the source file at the cited path and line. Relationship types: DEFINES, READS_FIELD, WRITES_FIELD, SQL_PREDICATE, CALLS_PGM, FILE_OPENS.",
+
+  "CR1_ORDSTS": {
+    "change_request": "Add order status H (Hold) to ORDHDR.ORDSTS CHAR(1)",
+    "starting_artifact": {"name": "ORDSTS", "type": "field", "defined_in": "src/QDDSSRC/ORDHDR.DDS"},
+    "answer_key": [
+      {
+        "id": "AK1-1",
+        "source_file": "src/QDDSSRC/ORDHDR.DDS",
+        "symbol_or_line": "field ORDSTS (line 11)",
+        "relationship": "DEFINES",
+        "tier": "confirmed",
+        "breaking": false,
+        "note": "Field definition — always the root node"
+      },
+      {
+        "id": "AK1-2",
+        "source_file": "src/QRPGLESRC/ORDENTRY.RPGLE",
+        "symbol_or_line": "L18 (status validation If block)",
+        "relationship": "READS_FIELD + WRITES_FIELD",
+        "tier": "confirmed",
+        "breaking": true,
+        "predicate": "wOrdSts <> 'O' And wOrdSts <> 'P' And wOrdSts <> 'C' And wOrdSts <> 'X'",
+        "note": "Valid-set check must be extended to include H"
+      },
+      {
+        "id": "AK1-3",
+        "source_file": "src/QRPGLESRC/INVUPDJOB.RPGLE",
+        "symbol_or_line": "L44 (ALLOC_ORDERS cursor)",
+        "relationship": "SQL_PREDICATE",
+        "tier": "confirmed",
+        "breaking": false,
+        "predicate": "WHERE h.ORDSTS = 'O'",
+        "note": "Safe — positive predicate, H not included, allocation correct"
+      },
+      {
+        "id": "AK1-4",
+        "source_file": "src/QRPGLESRC/INVUPDJOB.RPGLE",
+        "symbol_or_line": "L67 (GEN_PICKLIST cursor)",
+        "relationship": "SQL_PREDICATE",
+        "tier": "confirmed",
+        "breaking": true,
+        "predicate": "WHERE h.ORDSTS <> 'C' AND h.ORDSTS <> 'X'",
+        "note": "CRITICAL: negative predicate — H satisfies this, held orders land on pick list. INV-1 violated."
+      },
+      {
+        "id": "AK1-5",
+        "source_file": "src/QRPGLESRC/COMMJOB.RPGLE",
+        "symbol_or_line": "L31 (CalcDailyComm cursor)",
+        "relationship": "SQL_PREDICATE",
+        "tier": "confirmed",
+        "breaking": true,
+        "predicate": "WHERE h.ORDSTS NOT IN ('O', 'C', 'X')",
+        "note": "CRITICAL: NOT IN predicate — H satisfies this, commission paid on held orders. INV-2 violated."
+      },
+      {
+        "id": "AK1-6",
+        "source_file": "src/QCLSRC/DAYENDJOB.CLP",
+        "symbol_or_line": "CALL PGM(INVUPDJOB) and CALL PGM(COMMJOB)",
+        "relationship": "CALLS_PGM",
+        "tier": "confirmed",
+        "breaking": false,
+        "note": "Job driver — transitively affected through INVUPDJOB and COMMJOB"
+      }
+    ],
+    "critical_breaking_ids": ["AK1-4", "AK1-5"],
+    "safe_ids": ["AK1-3"],
+    "not_affected": ["PRICECALC", "ORDENTRY2", "STMTJOB"]
+  },
+
+  "CR2_PRICECALC": {
+    "change_request": "Change rounding mode in PRICECALC from HALF_UP to HALF_EVEN",
+    "starting_artifact": {"name": "PRICECALC", "type": "program", "defined_in": "src/QRPGLESRC/PRICECALC.RPGLE"},
+    "answer_key": [
+      {
+        "id": "AK2-1",
+        "source_file": "src/QRPGLESRC/PRICECALC.RPGLE",
+        "symbol_or_line": "Dcl-Proc CalcPrice Export (line 26)",
+        "relationship": "DEFINES",
+        "tier": "confirmed",
+        "breaking": false,
+        "note": "Program definition — root node"
+      },
+      {
+        "id": "AK2-2",
+        "source_file": "src/QRPGLESRC/ORDENTRY.RPGLE",
+        "symbol_or_line": "L55 (CalcPrice call via ExtPgm prototype)",
+        "relationship": "DIRECT_CALLER",
+        "tier": "confirmed",
+        "breaking": true,
+        "note": "Direct caller via ExtPgm('PRICECALC') — rounding change affects all interactive order line prices"
+      },
+      {
+        "id": "AK2-3",
+        "source_file": "src/QRPGLESRC/INVPRICJOB.RPGLE",
+        "symbol_or_line": "L41 (CalcPrice call via ExtPgm prototype)",
+        "relationship": "DIRECT_CALLER",
+        "tier": "confirmed",
+        "breaking": true,
+        "note": "Direct caller via ExtPgm('PRICECALC') — batch price recalculation job; rounding change alters nightly repriced line amounts"
+      },
+      {
+        "id": "AK2-4",
+        "source_file": "src/QCLSRC/STMTJOB.CLP",
+        "symbol_or_line": "CALL PGM(INVPRICJOB)",
+        "relationship": "INDIRECT_CALLER",
+        "tier": "confirmed",
+        "breaking": true,
+        "note": "Indirect: STMTJOB calls INVPRICJOB which calls PRICECALC — statement prices reflect repriced amounts"
+      }
+    ],
+    "critical_breaking_ids": ["AK2-2", "AK2-3", "AK2-4"],
+    "not_affected": ["INVUPDJOB", "COMMJOB", "DAYENDJOB", "ORDSTS"]
+  }
+}

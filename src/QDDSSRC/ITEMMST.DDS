@@ -1,0 +1,14 @@
+      *----------------------------------------------------------------
+      * ITEMMST - Item Master Physical File
+      * RETAILCO fictional IBM i application
+      * Representative DDS syntax — not compiled or run on IBM i
+      *----------------------------------------------------------------
+      A          R ITEMMSTR
+      A            ITEMNO         8A         COLHDG('ITEM' 'NUMBER')
+      A            DESCR         40A         COLHDG('DESCRIPTION')
+      A            QOH            9S 0       COLHDG('QTY ON HAND')
+      A            ALLOC          9S 0       COLHDG('QTY ALLOCATED')
+      A            REORD          9S 0       COLHDG('REORDER POINT')
+      A            UNIT_COST     11P 2        COLHDG('UNIT' 'COST')
+      A            SELL_PRICE    11P 2        COLHDG('SELLING' 'PRICE')
+      A          K ITEMNO

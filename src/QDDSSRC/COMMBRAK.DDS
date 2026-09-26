@@ -1,0 +1,12 @@
+      *----------------------------------------------------------------
+      * COMMBRAK - Commission Brackets Physical File
+      * RETAILCO fictional IBM i application
+      * Representative DDS syntax — not compiled or run on IBM i
+      *----------------------------------------------------------------
+      A          R COMMBRAKR
+      A            SALESREP       6A         COLHDG('SALES' 'REP')
+      A            BRAK_FROM     11P 2        COLHDG('BRACKET' 'FROM')
+      A            BRAK_TO       11P 2        COLHDG('BRACKET' 'TO')
+      A            COMM_RATE      5P 4        COLHDG('COMM' 'RATE')
+      A          K SALESREP
+      A          K BRAK_FROM

@@ -1,0 +1,14 @@
+      *----------------------------------------------------------------
+      * ORDLIN - Order Lines Physical File
+      * RETAILCO fictional IBM i application
+      * Representative DDS syntax — not compiled or run on IBM i
+      *----------------------------------------------------------------
+      A          R ORDLINR
+      A            ORDNO          7S 0       COLHDG('ORDER' 'NUMBER')
+      A            LINESEQ        3S 0       COLHDG('LINE' 'SEQ')
+      A            ITEMNO         8A         COLHDG('ITEM' 'NUMBER')
+      A            QTY            7S 0       COLHDG('QUANTITY')
+      A            PRICE         11P 2        COLHDG('UNIT' 'PRICE')
+      A            EXTAMT        13P 2        COLHDG('EXTENDED' 'AMOUNT')
+      A          K ORDNO
+      A          K LINESEQ
